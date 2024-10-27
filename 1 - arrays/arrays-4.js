@@ -66,4 +66,44 @@ for (const n of aEntries) {
   console.log(n) 
 }
 
+const aKeys = numbers_2.keys()  // obtém um iterador de chave de array
+console.log(aKeys.next().value) // 0 
+console.log(aKeys.next().value) // 1 
+console.log(aKeys.next().value) // 2
 
+const aValues = numbers_2.keys()  // obtém um iterador de valor de array
+console.log(aValues.next().value) // 1 
+console.log(aValues.next().value) // 2 
+console.log(aValues.next().value) // 3
+
+
+// Array.from - cria outro aarray a partir de um array existente.
+let numbers2 = Array.from(numbers_2)
+console.log(numbers2)
+
+let evens = Array.from(numbers_2, x => (x % 2 === 0)) // Criou outro array chamado evens, com um valor true se o número for par e false caso contrário.
+console.log(evens)
+
+// Array.of - cria outro array a partir dos argumentos passados para o método
+
+let anyNumbers = Array.of(1) // semelhante a let anyNumbers = [1]
+
+let otherNumbers = Array.of(1, 2, 3, 4, 5, 6) // semelhante a let anyNumbers = [1, 2, 3, 4, 5, 6]
+
+let copyOtherNumbers = Array.of(...otherNumbers) // semelhante a let anyNumbers = Array.of(1, 2, 3, 4, 5, 6)
+
+// fill - preenche um array com um valor
+
+let numbersCopy = Array.of(1, 2, 3, 4, 5, 6)
+numbersCopy.fill(0) // o array numbesCopy tera todas as suas posições com um valor 0
+numbersCopy.fill(2, 1) // o array numbesCopy tera todas as suas posições com um valor 2, apartir da posição 1
+numbersCopy.fill(1, 3, 5) // o array numbersCopy será preenchido com 1 do indice 3 ao 4
+console.log(numbersCopy)
+
+// copyWithin - copia uma sequência de valores do array para a posição de um índice de início.
+
+let copyArray = [1, 2, 3, 4, 5, 6]
+console.log(copyArray.copyWithin(0, 3)) // copia para o index 0 todos os elementos apastir do indice 3
+
+let copyOtherArray = [1, 2, 3, 4, 5, 6]
+console.log(copyOtherArray.copyWithin(1, 3, 5)) // copia para o indice 1 os elementos do indice 3 ao 4
