@@ -16,7 +16,8 @@ console.log(numbers)
   return number % 2 === 0 ? true : false
 } */
 
-const isEven = x => x % 2 === 0
+const isEven = x => x % 2 === 0 //verifica se um número é par
+
 
 let numbers_2 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
 
