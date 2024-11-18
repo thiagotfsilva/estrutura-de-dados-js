@@ -1,28 +1,52 @@
-import { Stack } from "./stack-array.js"
-import { Stack as StackObj } from "./stack.js"
+import { Stack } from "./stack.js"
 
-// Pilha baseada em array
-const stack = new Stack()
-console.log("Pilha esta vazia:", stack.isEmpty())
+// Convertendo números decimais para binários
+function decimalToBinary(decNumber) {
+  let number = decNumber
+  let rem
+  let binaryString = ""
+  const remStack = new Stack()
 
-stack.push(5)
-stack.push(12)
-console.log("Item no topo da pilha:", stack.peek())
-console.log("Tamanho da pilha:", stack.size())
-console.log("Pilha esta vazia:", stack.isEmpty())
+  while (number > 0) {
+    rem = Math.floor(number % 2) // obtem o resto da divisão
+    remStack.push(rem) // adiciona a pilha
+    number = Math.floor(number / 2) // atualiza o numero que sera divido por dois
+  }
 
-stack.pop()
-console.log("Tamanho da pilha:", stack.size())
+  while (!remStack.isEmpty()) {
+    binaryString += remStack.pop().toString()
+  }
 
-// Pilha baseada em objeto
-const stackObj = new StackObj()
-console.log(stackObj.isEmpty())
+  return binaryString
+}
 
-stackObj.push(2)
-stackObj.push(5)
-console.log(stackObj.size())
-console.log(stackObj.peek())
+console.log(decimalToBinary(233))
+console.log(decimalToBinary(10))
 
-stackObj.pop()
-console.log(stackObj.size())
-console.log(stackObj.toString())
+// Conversor de decimal para as bases entre 2 e 36
+function baseConverter(decNumber, base) {
+  const digits = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+  let number = decNumber
+  let rem
+  let baseString = ""
+  const remStack = new Stack()
+ 
+  if (!(base >= 2 && base <= 36)) {
+    return ""
+  }
+
+  while (number > 0) {
+    rem = Math.floor(number % base)
+    remStack.push(rem)
+    number = Math.floor(number / base)
+  }
+
+  while (!remStack.isEmpty()) {
+    baseString += digits[remStack.pop()]
+  }
+
+  return baseString
+}
+
+console.log(baseConverter(1, 2))
+console.log(baseConverter(100345, 8))
