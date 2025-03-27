@@ -23,8 +23,8 @@ export class Stack {
     }
 
     this.count--
-    const result = this.items[this.count] // remove o elemento no topo da pilha
-    delete this.items[this.count]
+    const result = this.items[this.count] // pega o item que vai ser removido para retornalo
+    delete this.items[this.count] // remove o elemento no topo da pilha
 
     return result
   }
@@ -34,7 +34,7 @@ export class Stack {
       return undefined
     }
 
-    return this.items[this.count - 1]
+    return this.items[this.count - 1] //pega o item que esta no topo da pilha
   }
 
   clear() {
