@@ -30,3 +30,7 @@ function palindromeChecker(aString) {
 
   return isEqual;
 }
+
+console.log(palindromeChecker("A man a plan a canal Panama"));
+console.log(palindromeChecker("natan"));
+console.log(palindromeChecker("casa"));
