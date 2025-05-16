@@ -16,7 +16,7 @@ class LinkedList {
     if(this.head == null) {
       this.head = node; // set the head to the new node
     } else {
-      current = this.head;
+      current = this.head; 
 
       while(current.next != null) { // obtém oo último item
         current = current.next; // caso current.next nao seja null ou undefined, o loop pula para o proximo elemento
@@ -26,6 +26,34 @@ class LinkedList {
     }
 
     this.count++; // incrementa o contador de elementos
+  }
+
+  removeAtttt(index) {
+    // verificar valores fora do intervalo
+    if (index >= 0 && index < this.count) {
+      let current = this.head;
+      
+      //remove o primeiro item
+      if (index === 0) {
+        this.head = current.next;
+        
+      } else {
+
+        let previous; // elemento anterior ao que estamos percorrendo
+
+        //percorre a lista até encontrar o elemento desejado e o remove ajustando as referências.
+        for (let i = 0; i < index; i++) {
+          previous = current; // referência ao elemento antes de current
+          current = current.next; // sempre faz referência           
+        }
+
+        // faz a ligacao de previous com next de current : pula esse elemento para removê-lo
+        previous.next = current.next; //
+      }
+      this.count--;
+      return current.element;
+    }
+    return undefined;
   }
 }
 
