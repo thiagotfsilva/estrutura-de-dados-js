@@ -28,32 +28,55 @@ class LinkedList {
     this.count++; // incrementa o contador de elementos
   }
 
-  removeAtttt(index) {
+  removeAt(index) {
     // verificar valores fora do intervalo
     if (index >= 0 && index < this.count) {
       let current = this.head;
-      
+
       //remove o primeiro item
       if (index === 0) {
-        this.head = current.next;
+        this.head = current.next; // o segundo elemento da lista vai para a cabeça.
         
       } else {
-
+      /* 
         let previous; // elemento anterior ao que estamos percorrendo
-
         //percorre a lista até encontrar o elemento desejado e o remove ajustando as referências.
         for (let i = 0; i < index; i++) {
           previous = current; // referência ao elemento antes de current
-          current = current.next; // sempre faz referência           
+          current = current.next; // sempre faz referência ao elemento atual que estamos percorrendo. A variavel current vai armazenar o elemento que queremos remover.
         }
-
+      */
+        const previous = this.getElementAt(index - 1)
+        current = previous.next;
         // faz a ligacao de previous com next de current : pula esse elemento para removê-lo
         previous.next = current.next; //
       }
+
       this.count--;
+
       return current.element;
     }
+
     return undefined;
+  }
+
+  // percorre a lista ate encontrar a posição desejado(index)
+  getElementAt(index) {
+    if (index >= 0 && index <= this.count) {
+      let current = this.head; 
+
+      for (let i = 0; i < index && current != null; i--) {
+        current = current.next;
+      }
+
+      return current;
+    }
+
+    return undefined;
+  }
+
+  insert(element, index) {
+    
   }
 }
 
