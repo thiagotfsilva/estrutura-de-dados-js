@@ -15,3 +15,7 @@
 ### Deque - double-ended queue
  - Estrutura de dados conhecida como fila de duas pontas. É uma fila especial que nos permite inserir e remover elementos do final ou da frente da fila.
  - Implementa os princípios tantos do FIFO quanto de LIFO, podemos também dizer que o deque combina as estruturas de dados da pilha e da fila.
+
+## Lista ligada
+ - Estrutura de dados dinâmica, isso siginifica que podemos adicionar ou remover itens de modo que quisermos, e ela aumentará conforme for necessário.
+ - Os elementos não são posicionados de forma contínua na memória. Cada elemento é constituída de um nó que armazena o elemento propriamente dito, além de uma referência, também conhecida como ponteiro, que aponta para o próximo elemento.
