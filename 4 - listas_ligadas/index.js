@@ -9,4 +9,14 @@ console.log(list);
 
 list.removeAt(1);
 
+
+list.insert(57);
+list.insert(58);
+list.insert(60);
+
+console.log(list);
+
+let elm = list.indexOf(60);
+console.log(elm);
+
 console.log(list);
