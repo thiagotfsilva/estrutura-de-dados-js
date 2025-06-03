@@ -20,3 +20,7 @@ let elm = list.indexOf(60);
 console.log(elm);
 
 console.log(list);
+
+console.log("*************");
+
+console.log(list.toString());

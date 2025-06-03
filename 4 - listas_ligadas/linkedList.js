@@ -130,11 +130,17 @@ class LinkedList {
   }
 
   toString() {
-    if (this.head == null) return "";
+    if (this.isEmpty()) return "";
 
     let objString = `${this.head.element}`;
     let current = this.head.next;
-    
+
+    for (let i = 1; this.size() && current != null; i++) {
+      objString = `${this.head.element}, ${current.element}`;
+      current = current.next;
+    }
+
+    return objString;
   }
 }
 
