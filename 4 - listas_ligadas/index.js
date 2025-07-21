@@ -1,3 +1,4 @@
+import DoublyLinkedList from "./doublyLinkedList.js";
 import LinkedList from "./linkedList.js"
 
 const list = new LinkedList();
@@ -23,4 +24,13 @@ console.log(list);
 
 console.log("*************");
 
-console.log(list.toString());
+const listaDuplamenteLigada = new DoublyLinkedList();
+
+listaDuplamenteLigada.insert("Carlos", 0);
+listaDuplamenteLigada.insert("Luiz", 1);
+listaDuplamenteLigada.insert("Marcos", 2);
+listaDuplamenteLigada.insert("Carmem", 3);
+
+listaDuplamenteLigada.removeAt(2);
+
+console.log(listaDuplamenteLigada.toString());

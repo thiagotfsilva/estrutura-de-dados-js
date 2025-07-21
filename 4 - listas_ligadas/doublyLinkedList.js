@@ -29,11 +29,11 @@ class DoublyLinkedList extends LinkedList {
         node.prev = current;
         this.tail = node; // ultimo elemento
       } else {
-        const previous = this.getElementAt(index - 1);
-        current = previous.next;
-        node.next = current;
-        previous.next = node;
-        current.prev = node;
+        const previous = this.getElementAt(index - 1); // Encontrar o nó anterior à posição desejada
+        current = previous.next; // Encontrar o nó atual na posição desejada
+        node.next = current; // aponta o proximo no para no atual
+        previous.next = node; // no anterior aponta para o novo no
+        current.prev = node; 
         node.prev = previous;
       }
 
@@ -43,6 +43,34 @@ class DoublyLinkedList extends LinkedList {
     }
 
     return false;
+  }
+
+  removeAt(index) {
+    if (index >= 0 && index < this.count) {
+      let current = this.head;
+      if (index === 0) {
+        this.head = current.next;
+        if (this.count === 1) {
+          this.tail = undefined; // Se houver apenas um item, atualizmos tail também
+        } else {
+          this.head.prev = undefined;
+        }
+      } else if (index === this.count - 1) { // ultimo item 
+        current = this.tail;
+        this.tail = current.prev;
+        this.tail.next = undefined
+      } else {
+        current = this.getElementAt(index); // verificar metodo
+        
+        const previous = current.prev;
+        // Faz ligação de previous com next de current - pula esse elemento para removê-lo
+        previous.next = current.next;
+        current.next.prev = previous;
+      }
+      this.count--;
+      return current.element;
+    }
+    return undefined;
   }
 }
 
