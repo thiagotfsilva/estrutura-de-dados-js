@@ -76,7 +76,71 @@ class LinkedList {
   }
 
   insert(element, index) {
-    
+    if (index >= 0 && index <= this.count) {
+      const node = new Node(element);
+
+      if (index === 0) { // adicionar na primeira posição
+        const current = this.head;
+        node.next = current; // aponta para o primeiro elemento.
+        this.head = node; // referencia head para node
+      } else {
+        const previous = this.getElementAt(index - 1); // "index -1" é uma posição antes do local que queremos inserir o elemento.
+        const current = previous.next; //current vai re
+        node.next = current;
+        previous.next = node;
+      }
+
+      this.count++;
+
+      return true;
+    }
+
+    return false;
+  }
+
+  indexOf(element) {
+    let current = this.head;
+
+    for (let i = 0; i < this.count && current != null; i++) {
+      if (this.equalsFn(element, current.element)) { // elemento === current.element
+        return i;
+      }
+
+      current = current.next;
+    }
+
+    return -1;
+  }
+
+  remove(element) {
+    const index = this.indexOf(element);
+    return this.removeAt(index);
+  }
+
+  size() {
+    return this.count;
+  }
+
+  isEmpty() {
+    return this.size === 0;
+  }
+
+  getHead() {
+    return this.head;
+  }
+
+  toString() {
+    if (this.isEmpty()) return "";
+
+    let objString = `${this.head.element}`;
+    let current = this.head.next;
+
+    for (let i = 1; this.size() && current != null; i++) {
+      objString = `${this.head.element}, ${current.element}`;
+      current = current.next;
+    }
+
+    return objString;
   }
 }
 
