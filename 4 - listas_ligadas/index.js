@@ -1,4 +1,4 @@
-import CircularLinkedList from "./circularLinkedLista.js";
+import CircularLinkedList from "./circularLinkedList.js";
 import DoublyLinkedList from "./doublyLinkedList.js";
 import LinkedList from "./linkedList.js"
 
