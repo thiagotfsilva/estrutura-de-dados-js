@@ -1,3 +1,4 @@
+import CircularLinkedList from "./circularLinkedList.js";
 import DoublyLinkedList from "./doublyLinkedList.js";
 import LinkedList from "./linkedList.js"
 
@@ -31,6 +32,12 @@ listaDuplamenteLigada.insert("Luiz", 1);
 listaDuplamenteLigada.insert("Marcos", 2);
 listaDuplamenteLigada.insert("Carmem", 3);
 
-listaDuplamenteLigada.removeAt(2);
 
-console.log(listaDuplamenteLigada.toString());
+
+console.log("*************");
+
+const listaCirculares = new CircularLinkedList();
+
+listaCirculares.insert("primeiro", 0);
+
+console.log(listaCirculares.toString());

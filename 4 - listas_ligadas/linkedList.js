@@ -8,6 +8,7 @@ class LinkedList {
     this.equalsFn = equalsFn; // para auxiliar a encontrar um elemento específico na lista ligada. Para uma comparação de igualdade entre dois valores na lista.
   }
 
+  // Insere elementos no final da lista
   push(element) {
     const node = new Node(element);
     let current;
