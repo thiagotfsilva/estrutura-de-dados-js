@@ -12,4 +12,16 @@ function defaultCompare(itemA, itemB) {
   return itemA < itemB ? COMPARE.LESS_THAN : COMPARE.BIGGER_THAN;
 }
 
-export { defaultEquals, defaultCompare};
+function defaultToString(item) {
+  if (item === null) {
+    return 'NULL';
+  } else if (item === undefined) {
+    return 'UNDEFINED';
+  } else if (typeof item === 'string' || item instanceof String) {
+    return `${item}`;
+  }
+
+  return item.toString();
+}
+
+export { defaultEquals, defaultCompare, defaultToString };

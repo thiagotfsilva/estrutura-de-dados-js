@@ -24,7 +24,7 @@
 - Os elementos não são posicionados de forma contínua na memória. Cada elemento é constituída de um nó que armazena o elemento propriamente dito, além de uma referência, também conhecida como ponteiro, que aponta para o próximo elemento.
 - Em uma lista duplamente ligada, temos uma ligação dupla: uma para o próximo elemeto e outra para o elemento anterior. Ela nos oferece duas maneiras de iterar por ela: do início para o fim ou vice-versa. Também podemos acessar o próximo elemento ou elemento anterior de um nó em particular.
 
-## Conjuntos (Set) em Desenvolvimento
+## Conjuntos (Set)
 
 Conjuntos são estruturas de dados fundamentais que armazenam elementos únicos, sem repetições. Eles são amplamente utilizados em algoritmos e aplicações para resolver problemas como:
 
