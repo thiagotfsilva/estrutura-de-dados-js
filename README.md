@@ -34,3 +34,32 @@ Conjuntos são estruturas de dados fundamentais que armazenam elementos únicos,
 - **Gerenciamento de permissões**, tags, ou qualquer cenário onde a unicidade dos itens é importante.
 
 No desenvolvimento de software, conjuntos ajudam a simplificar a lógica e melhorar a performance em tarefas que envolvem coleções de dados únicos. A implementação apresentada neste projeto demonstra como criar e manipular conjuntos em JavaScript, incluindo métodos para adicionar, remover, verificar existência, e realizar operações clássicas de teoria dos conjuntos.
+
+## Dicionário (Dictionary)
+
+O dicionário é uma estrutura de dados que armazena pares de chave-valor, permitindo acesso eficiente aos valores por meio de suas chaves. Diferente de arrays, as chaves podem ser de qualquer tipo, e cada chave é única dentro do dicionário.
+
+### Características principais:
+
+- **Adição e remoção**: Permite adicionar (`set`) e remover (`remove`) pares de chave-valor.
+- **Verificação de existência**: O método `hasKey` verifica se uma chave está presente.
+- **Acesso rápido**: O método `get` retorna o valor associado a uma chave.
+- **Listagem**: Métodos como `keys`, `values` e `keyValues` retornam todas as chaves, valores ou pares armazenados.
+- **Iteração**: O método `forEach` permite executar uma função para cada par de chave-valor.
+- **Utilitários**: Métodos como `size`, `isEmpty` e `clear` ajudam no gerenciamento do dicionário.
+
+### Exemplo de uso:
+
+```javascript
+import Dictionary from './dictionary.js';
+
+const dict = new Dictionary();
+dict.set('nome', 'Maria');
+dict.set('idade', 30);
+
+console.log(dict.get('nome')); // Maria
+console.log(dict.keys());      // ['nome', 'idade']
+console.log(dict.values());    // ['Maria', 30]
+dict.remove('idade');
+console.log(dict.size());      // 1
+```

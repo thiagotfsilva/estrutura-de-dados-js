@@ -26,10 +26,12 @@ class Dictionary {
     return false;
   };
 
+  // verifica se uma chave esta presente no dicionário
   hasKey(key) {
     return this.table[this.toStrFn(key)] != null;
   };
 
+  // retornao valor da chave passada como método
   get(key) {
     /* if (this.hasKey(key)) {
       return this.table[this.toStrFn(key)];
@@ -41,6 +43,7 @@ class Dictionary {
     return valuePair == null ? undefined : valuePair.value;
   };
 
+  // limpa o dicionário
   clear() {
     this.table = {};
   };
@@ -53,6 +56,7 @@ class Dictionary {
     return this.size() === 0;
   };
 
+  //devolve um arrat com todas as chaves contidas no dicionário
   keys() {
     /* const keys = [];
     const valuePairs = this.keyValues();
@@ -65,10 +69,12 @@ class Dictionary {
     return this.keyValues().map(valuePair => valuePair.key);
   };
 
+  // devolve um array com todos os valores contidos no dicionário
   values() {
     return this.keyValues().map(valuePair => valuePair.value);
   };
 
+  // devolve um array com todos os pares de valores [chave, valor] contidos no dicionário
   keyValues() {
     /* const valuePairs = [];
     for (const key in this.table) {
