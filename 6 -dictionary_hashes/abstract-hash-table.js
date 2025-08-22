@@ -1,37 +1,12 @@
-import { defaultToString } from '../utils/utils.js';
-import ValuePair from './valuePair.js';
+import { defaultToString } from "../utils/utils";
 
-class HashTable {
+class AbstractHashTable {
   constructor(toStrFn = defaultToString) {
+    if (this.constructor == AbstractHashTable) {
+      throw new Error("classe não pode ser estanciada");
+    }
+
     this.toStrFn = toStrFn;
-    this.table = {};
-  }
-
-  put(key, value) {
-    if (key != null && value != null) {
-      const position = this.hashCode(key); //encontramos posicao na tabela
-      this.table[position] = new ValuePair(key, value);
-      return true;
-    }
-
-    return false;
-  }
-
-  remove(key) {
-    const hash = this.hashCode(key);
-    const valuePair = this.table[hash];
-
-    if (valuePair != null) {
-      delete this.table[hash];
-      return true;
-    }
-
-    return false;
-  }
-
-  get(key) {
-    const valuePair = this.table[this.hashCode(key)]; // devolve o valor da chave apartir da posição
-    return valuePair == null ? undefined : valuePair.value;
   }
 
   loseLoseHashCode(key) {
@@ -72,25 +47,4 @@ class HashTable {
   hashCode(key) {
     return this.loseLoseHashCode(key);
   }
-
-  isEmpty() {
-    return Object.keys(this.table).length === 0;
-  }
-
-  toString() {
-    if (this.isEmpty()) {
-      return '';
-    }
-
-    const keys = Object.keys(this.table); 
-    let objString = `{${keys[0]} => ${this.table[keys[0]].toString()}}`;
-
-    for (let i = 1; i < keys.length; i++) {
-      objString = `${objString}, {${keys[i]} => ${this.table[keys[i]].toString()}}`;      
-    }
-
-    return objString;
-  }
 }
-
-export default HashTable;
