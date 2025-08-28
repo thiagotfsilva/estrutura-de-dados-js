@@ -58,7 +58,7 @@ class HashTableLinearProbinh {
     if (this.table[position] != null) {
       if (this.table[position].key === key) {
         delete this.table[position];
-
+        this.verifyRemoveSideEffect(key, position);
         return true;
       }
 
@@ -69,7 +69,9 @@ class HashTableLinearProbinh {
       }
 
       if (this.table[index] !== null && this.table[index].key === key) {
-        delete this.table[index]
+        delete this.table[index];
+        this.verifyRemoveSideEffect(key, position);
+        return true;
       }
     }
 
@@ -100,7 +102,16 @@ class HashTableLinearProbinh {
     let index = removedPosition + 1;
 
     while (this.table[index] != null) {
-      
+      const posHash = this.hashCode(this.table[index].key);
+      if (posHash <= hash || posHash <= removedPosition) {
+        this.table[removedPosition] = this.table[index];
+        delete this.table[index];
+        removedPosition = index;
+      }
+
+      index++;
     }
   }
 }
+
+export default HashTableLinearProbinh;
