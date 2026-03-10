@@ -26,11 +26,12 @@ jobs:
           node-version: ${{ matrix.node-version }}
       
       - name: Install dependencies
+        id: install-deps
         run: npm ci --prefer-offline --no-audit
         continue-on-error: true
       
       - name: Install dependencies (fallback)
-        if: failure()
+        if: steps.install-deps.outcome == 'failure'
         run: npm install --prefer-offline --no-audit
       
       - name: Run tests
