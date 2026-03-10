@@ -96,16 +96,17 @@ class HashTableLinearProbinh {
   hashCode(key) {
     return this.loseLoseHashCode(key);
   }
-
+  // como não sabemos se há mais elementos com mesmo hash, temos de verificar se a remoção tem algum efeito colateral.
+  // se houver posição com efeito colateral, é necessário mover o elemento que sofreu colisão uma position para trás afim de que tenhamos posições vazias.
   verifyRemoveSideEffect(key, removedPosition) {
     const hash = this.hashCode(key);
     let index = removedPosition + 1;
 
     while (this.table[index] != null) {
-      const posHash = this.hashCode(this.table[index].key);
+      const posHash = this.hashCode(this.table[index].key); // calcular o hash da position atual
       if (posHash <= hash || posHash <= removedPosition) {
-        this.table[removedPosition] = this.table[index];
-        delete this.table[index];
+        this.table[removedPosition] = this.table[index]; // movendo elemento atual para uma position removevdPOsition
+        delete this.table[index]; // apaga elemento atual 
         removedPosition = index;
       }
 
