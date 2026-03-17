@@ -11,7 +11,7 @@ class LinkedList {
   // Insere elementos no final da lista
   push(element) {
     const node = new Node(element);
-    let current;
+    let current; // variável para percorrer a lista
 
     // cenário em que a lista esta vazia.
     if(this.head == null) {
@@ -19,11 +19,11 @@ class LinkedList {
     } else {
       current = this.head; 
 
-      while(current.next != null) { // obtém oo último item
+      while(current.next != null) { // obtém oo último elemento da lista
         current = current.next; // caso current.next nao seja null ou undefined, o loop pula para o proximo elemento
       }
 
-      current.next = node; // atribui o novo elemento a next para criar a ligação.
+      current.next = node; // o ultimo elemento da lista aponta para o novo node, adicionando o elemento no final da lista.
     }
 
     this.count++; // incrementa o contador de elementos
@@ -64,13 +64,13 @@ class LinkedList {
   // percorre a lista ate encontrar a posição desejado(index)
   getElementAt(index) {
     if (index >= 0 && index <= this.count) {
-      let current = this.head; 
+      let node = this.head; 
 
-      for (let i = 0; i < index && current != null; i--) {
-        current = current.next;
+      for (let i = 0; i < index && node != null; i++) {
+        node = node.next;
       }
 
-      return current;
+      return node;
     }
 
     return undefined;
